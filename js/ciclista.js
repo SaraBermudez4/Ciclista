@@ -1,28 +1,29 @@
 import Persona from './persona.js'
 
-class Ciclista extends Persona{
-    constructor(){
+class Ciclista extends Persona {
+    constructor() {
         super()
         this.nombre = ""
         this.registroTiempos = {
-            carrera1 : 0,
-            carrera2 : 0,
-            carrera3 : 0,
-            carrera4 : 0,
-            carrera5 : 0
+            carrera1: 0,
+            carrera2: 0,
+            carrera3: 0,
+            carrera4: 0,
+            carrera5: 0
         }
+        this.promedio = 0
     }
 
-    correr(){
+    correr() {
         console.log("corriendo")
     }
 
-    registrarTiempo(carrera, tiempo){
-        this.registroTiempos[carrera] = tiempo  
+    registrarTiempo(carrera, tiempo) {
+        this.registroTiempos[carrera] = tiempo
     }
 
-    promedioTiempo(){
-        const {
+    promedioTiempo() {
+        let {
             carrera1,
             carrera2,
             carrera3,
@@ -30,9 +31,8 @@ class Ciclista extends Persona{
             carrera5
         } = this.registroTiempos
 
-        return (carrera1 + carrera2 + carrera3 + carrera4 + carrera5) / 5
+        this.promedio = Math.floor((parseInt(carrera1,10) + parseInt(carrera2,10) + parseInt(carrera3,10) + parseInt(carrera4,10) + parseInt(carrera5,10)) / 5 )
     }
 }
-
 
 export default Ciclista
